@@ -1,0 +1,28 @@
+<div class="container">
+    <h1>Angular 13 CRUD Example - Tutsmake.com</h1>
+   
+    <a href="#" routerLink="/users/create/" class="btn btn-success">Create New User</a>
+     
+    <table class="table table-bordered">
+      <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>EMAIL</th>
+        <th>PHONE</th>
+        <th>PASSWORD</th>
+        <th width="220px">Action</th>
+      </tr>
+      <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.name}}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.phone }}</td>
+        <td>{{ user.password }}</td>
+        <td>
+          <a href="#" [routerLink]="['/users/', user.id, 'view']" class="btn btn-info">View</a>
+          <a href="#" [routerLink]="['/users/', user.id, 'edit']" class="btn btn-primary">Edit</a>
+          <button type="button" (click)="deleteuser(user.id)" class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+    </table>
+ </div>
